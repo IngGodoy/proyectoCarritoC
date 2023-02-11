@@ -1,0 +1,106 @@
+*{
+    padding:0;
+    margin:0;
+    text-decoration:none;    
+}
+
+header {
+    background-color:$colorMain;
+    color: $colorLetraB;
+    @include flexBox (row);
+    justify-content: space-between;  
+}
+
+main{
+    background-color:#F5B041;
+    #img-compu{
+        display:flex;
+        justify-content:center;
+        background-color: #6B17D0;
+        
+      }
+    h2{
+    padding-top: 10px;
+    text-align: center;
+    }
+    section {
+        div img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border-color: #060606;
+            border-style: solid;
+            // & copia "section div img"
+            &:hover{
+              width: 205px;
+              height: 205px;
+            }
+        } 
+    }
+
+}
+
+footer{
+    background-color:$colorMain;
+    color: $colorLetraB;
+    display: flex;
+    justify-content:space-around;
+    #redesSociales{
+        display: flex;
+        justify-content:stretch;
+        padding-right: 10px;
+        img{
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+         }
+    }
+}
+@media(max-width:768px){
+    /* GRID AREAS*/
+    header{
+        grid-area: header;
+    }
+    #logo{
+        grid-area: logo;
+    }
+    #titulo{
+        grid-area:titulo
+    }
+    /*colocando posicion de areas*/
+    header{
+        display: grid;
+        grid-template-areas: 
+        "nav"
+        "titulo"
+        "logo";
+    }
+    section{
+        @include flexBox (column);
+     } 
+     section div a, #titulo, #logo {
+         margin-left: 30%;
+         margin-right: 25%;
+    }
+    #redesSociales div{
+        margin-right: 20px;
+    }
+    #logo img {
+        height: 9vh;
+     }  
+
+ }
+ @media(min-width:769px){
+    header {
+        @include flexBox (row);
+        justify-content: space-between;
+        align-items: center; 
+    }
+    section{
+        display: flex;
+        justify-content:space-around;
+     }
+     #logo img {
+        height: 20vh;
+     }  
+ }
